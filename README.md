@@ -52,6 +52,165 @@
 </p>
 
 
+<hr>
+
+<h1 align="center">🧪 Assignment: Contacts + Assistant Integration</h1>
+
+<h2>📌 What was built</h2>
+<ul>
+  <li>Contact Management System</li>
+  <li>CSV Import Functionality</li>
+  <li>Contact Search API</li>
+  <li>Query Builder Foundation</li>
+  <li>Assistant-ready Retrieval Layer</li>
+</ul>
+
+<h2>▶️ How to Run the Project</h2>
+
+<h3>1. Clone Repository</h3>
+<pre><code>git clone https://github.com/vipinrwt95/SerriLibreChatAssignment.git
+cd SerriLibreChatAssignment
+</code></pre>
+
+<h3>2. Install Dependencies</h3>
+<pre><code>npm install
+</code></pre>
+
+<h3>3. Setup Environment</h3>
+<p>Create a <code>.env</code> file if not already present.</p>
+
+<pre><code>MONGO_URI=your_mongo_url
+JWT_SECRET=your_secret
+</code></pre>
+
+<h3>4. Run Backend</h3>
+<pre><code>npm run backend
+</code></pre>
+
+<h3>5. Run Frontend</h3>
+<pre><code>npm run frontend
+</code></pre>
+
+<h3>6. Or Run Full App</h3>
+<pre><code>npm run dev
+</code></pre>
+
+<h2>🧪 How to Test the Assignment</h2>
+
+<h3>1. Add Contact Manually</h3>
+<ul>
+  <li>Open the Contacts UI</li>
+  <li>Fill the form</li>
+  <li>Submit and verify the data in UI / database</li>
+</ul>
+
+<h3>2. Import CSV</h3>
+<ul>
+  <li>Upload a CSV file</li>
+  <li>The system parses and stores contacts</li>
+  <li>Verify import count in API response or UI</li>
+</ul>
+
+<h3>3. Fetch Contacts</h3>
+<pre><code>GET /api/contacts
+</code></pre>
+
+<h3>4. Search Contacts</h3>
+<pre><code>GET /api/contacts/search?query=vipin
+</code></pre>
+
+<h3>5. Validate Assistant Usage</h3>
+<ul>
+  <li>Verify contacts can be retrieved for prompt/context building</li>
+  <li>Confirm query builder can use contact data as structured context</li>
+</ul>
+
+<h2>📌 Assignment Questions</h2>
+
+<h3>1. If the system needed to support 1,000,000 contacts, how would you redesign it?</h3>
+<p>To support 1 million contacts, I would redesign the system for scalability, retrieval quality, and operational reliability.</p>
+
+<h4>Database / Storage</h4>
+<ul>
+  <li>Add indexes on fields like name, email, company, and role</li>
+  <li>Use pagination instead of loading large result sets</li>
+  <li>Store normalized searchable fields</li>
+  <li>Separate raw imported data from cleaned contact records</li>
+</ul>
+
+<h4>Import Pipeline</h4>
+<ul>
+  <li>Move CSV import to background jobs / queues</li>
+  <li>Process contacts in batches</li>
+  <li>Add retry handling and failure reporting</li>
+</ul>
+
+<h4>Search</h4>
+<ul>
+  <li>Introduce a dedicated search engine such as Elasticsearch, OpenSearch, or Typesense</li>
+  <li>Support fuzzy search, ranking, filtering, and fast pagination</li>
+</ul>
+
+<h4>Assistant Retrieval</h4>
+<ul>
+  <li>Store preprocessed contact text for retrieval</li>
+  <li>Optionally add embeddings for semantic search</li>
+  <li>Use hybrid retrieval: keyword + semantic search</li>
+</ul>
+
+<h4>Performance / Reliability</h4>
+<ul>
+  <li>Add caching (for example Redis)</li>
+  <li>Monitor query latency and import performance</li>
+  <li>Use read replicas if required</li>
+</ul>
+
+<h3>2. How would you ensure the assistant retrieves the most relevant contacts for a query?</h3>
+
+<h4>Relevance Pipeline</h4>
+<ol>
+  <li><strong>Normalize the query</strong> — clean casing, spacing, punctuation, and identify possible entities like name, company, role, or email.</li>
+  <li><strong>Hybrid retrieval</strong> — combine exact / partial keyword search with semantic search.</li>
+  <li><strong>Ranking</strong> — rank results using exact match, prefix match, semantic similarity, recency, and profile completeness.</li>
+  <li><strong>Filtering</strong> — apply filters such as company, role, source, tags, or ownership scope.</li>
+  <li><strong>Reranking</strong> — reorder top results using a scoring layer or lightweight reranker.</li>
+  <li><strong>Context control</strong> — pass only the top relevant contacts to the assistant to avoid noisy prompts.</li>
+</ol>
+
+<h3>3. What are the limitations of your current implementation?</h3>
+<ul>
+  <li>Search is basic and not optimized for very large datasets</li>
+  <li>No dedicated search engine yet</li>
+  <li>CSV import is likely synchronous and may be slow for large files</li>
+  <li>No background processing / job queue</li>
+  <li>No semantic retrieval yet</li>
+  <li>Limited ranking and relevance tuning</li>
+  <li>No strong deduplication flow yet</li>
+  <li>No caching layer</li>
+  <li>Assistant integration is still foundational rather than a full retrieval pipeline</li>
+</ul>
+
+<h2>🚀 Future Improvements</h2>
+<ul>
+  <li>Add background job queue for imports</li>
+  <li>Add deduplication rules</li>
+  <li>Integrate Elasticsearch / Typesense</li>
+  <li>Add semantic search with embeddings</li>
+  <li>Improve ranking and reranking</li>
+  <li>Build a more advanced query builder UI</li>
+  <li>Add analytics, monitoring, and import history</li>
+</ul>
+
+<h2>👤 Author</h2>
+<p><strong>Vipin Rawat</strong></p>
+
+<h2>🚀 Final Git Commands</h2>
+<pre><code>git add README.md
+git commit -m "Update README with assignment details"
+git push
+</code></pre>
+
+
 # ✨ Features
 
 - 🖥️ **UI & Experience** inspired by ChatGPT with enhanced design and features
