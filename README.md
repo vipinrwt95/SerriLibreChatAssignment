@@ -67,6 +67,53 @@
 
 <h2>▶️ How to Run the Project</h2>
 
+<h2>🐳 Docker Setup (Recommended)</h2>
+
+<p>
+This project is fully Dockerized, so you do not need to manually manage Node.js, MongoDB, or dependencies.
+Docker will handle all versions and services automatically.
+</p>
+
+<h3>✅ Prerequisites</h3>
+<ul>
+  <li>Install <strong>Docker</strong></li>
+  <li>Install <strong>Docker Compose</strong></li>
+</ul>
+
+<h3>🚀 Quick Start (Using Docker)</h3>
+
+<p>Just clone the repository and run:</p>
+
+<pre><code>git clone https://github.com/vipinrwt95/SerriLibreChatAssignment.git
+cd SerriLibreChatAssignment
+
+docker compose up -d
+</code></pre>
+
+<p>This will:</p>
+<ul>
+  <li>Start backend server</li>
+  <li>Start frontend</li>
+  <li>Start MongoDB (if configured)</li>
+  <li>Install all dependencies automatically</li>
+</ul>
+
+<h3>🌐 Access Application</h3>
+<ul>
+  <li>Frontend: <code>http://localhost:3080</code></li>
+  <li>Backend API: <code>http://localhost:3080/api</code></li>
+</ul>
+
+<h3>🛑 Stop Services</h3>
+<pre><code>docker compose down
+</code></pre>
+
+<h3>🔄 Rebuild (if needed)</h3>
+<pre><code>docker compose up --build
+</code></pre>
+
+<p><strong>Note:</strong> Docker ensures a consistent environment across all systems, making setup fast and error-free.</p>
+
 <h3>1. Clone Repository</h3>
 <pre><code>git clone https://github.com/vipinrwt95/SerriLibreChatAssignment.git
 cd SerriLibreChatAssignment
