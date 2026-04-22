@@ -78,7 +78,39 @@ cd SerriLibreChatAssignment
 
 <h3>3. Setup Environment</h3>
 <p>Create a <code>.env</code> file if not already present.</p>
+<h3>🔑 3.1 Add Google API Key (Required for Assistant)</h3>
 
+<p>This project uses Google models (Gemini) for assistant functionality.</p>
+
+<h4>Step 1: Get API Key</h4>
+<ul>
+  <li>Go to: <a href="https://ai.google.dev/">https://ai.google.dev/</a></li>
+  <li>Generate an API key</li>
+</ul>
+
+<h4>Step 2: Add to Environment File</h4>
+
+<p>Add the following in your <code>.env</code> file:</p>
+
+<pre><code>GOOGLE_API_KEY=your_google_api_key_here
+</code></pre>
+
+<h4>Step 3: Configure LibreChat</h4>
+
+<p>Ensure your <code>librechat.yaml</code> (or config file) includes Google endpoint configuration.</p>
+
+<pre><code>endpoints:
+  google:
+    models:
+      default: ["gemini-2.5-flash-lite"]
+    apiKey: ${GOOGLE_API_KEY}
+</code></pre>
+
+<h4>Step 4: Restart Server</h4>
+<pre><code>npm run dev
+</code></pre>
+
+<p><strong>Note:</strong> Without this key, assistant features using Google models will not work.</p>
 <pre><code>MONGO_URI=your_mongo_url
 JWT_SECRET=your_secret
 </code></pre>
