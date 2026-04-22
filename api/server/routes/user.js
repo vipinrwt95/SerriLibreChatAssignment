@@ -19,6 +19,10 @@ const settings = require('./settings');
 
 const router = express.Router();
 
+const contactsRoutes = require('./contacts');
+
+router.use('/contacts', contactsRoutes);
+
 router.use('/settings', settings);
 router.get('/', requireJwtAuth, getUserController);
 router.get('/terms', requireJwtAuth, getTermsStatusController);

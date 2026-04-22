@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
-import { MessagesSquare } from 'lucide-react';
+import { MessagesSquare, Users } from 'lucide-react';
 import { useUserKeyQuery } from 'librechat-data-provider/react-query';
 import { getConfigDefaults, getEndpointField } from 'librechat-data-provider';
 import type { TEndpointsConfig } from 'librechat-data-provider';
@@ -9,6 +9,7 @@ import ConversationsSection from '~/components/UnifiedSidebar/ConversationsSecti
 import { useGetEndpointsQuery, useGetStartupConfig } from '~/data-provider';
 import useSideNavLinks from '~/hooks/Nav/useSideNavLinks';
 import store from '~/store';
+import ContactsPanel from '~/components/UnifiedSidebar/ContactsPanel';
 
 const defaultInterface = getConfigDefaults().interface;
 
@@ -57,8 +58,16 @@ export default function useUnifiedSidebarLinks() {
       id: 'conversations',
       Component: ConversationsSection,
     };
+    const contactsLink: NavLink = {
+      title: 'Contacts',
+      label: '',
+      icon: Users,
+      id: 'contacts',
+      Component: ContactsPanel,
+    };
 
-    return [conversationLink, ...sideNavLinks];
+
+    return [conversationLink, contactsLink, ...sideNavLinks];
   }, [sideNavLinks]);
 
   return links;

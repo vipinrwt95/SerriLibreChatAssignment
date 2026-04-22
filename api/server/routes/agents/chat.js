@@ -7,6 +7,7 @@ const {
   validateConvoAccess,
   buildEndpointOption,
   canAccessAgentFromBody,
+  injectContactsIntoMessages,
 } = require('~/server/middleware');
 const { initializeClient } = require('~/server/services/Endpoints/agents');
 const AgentController = require('~/server/controllers/agents/request');
@@ -30,6 +31,9 @@ router.use(checkAgentAccess);
 router.use(checkAgentResourceAccess);
 router.use(validateConvoAccess);
 router.use(buildEndpointOption);
+
+
+router.use(injectContactsIntoMessages);
 
 const controller = async (req, res, next) => {
   await AgentController(req, res, next, initializeClient, addTitle);

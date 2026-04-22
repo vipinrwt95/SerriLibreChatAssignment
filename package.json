@@ -184,5 +184,8 @@
       "admin/",
       "packages/"
     ]
+  },
+  "dependencies": {
+    "csv-parser": "^3.2.0"
   }
 }
